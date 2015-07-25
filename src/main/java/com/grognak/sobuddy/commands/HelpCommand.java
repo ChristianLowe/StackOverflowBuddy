@@ -1,7 +1,6 @@
 package com.grognak.sobuddy.commands;
 
 import com.grognak.sobuddy.app.QueryTerminal;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;

@@ -4,7 +4,6 @@ import com.grognak.sobuddy.commands.BaseCommand;
 import com.grognak.sobuddy.commands.HelpCommand;
 import com.grognak.sobuddy.commands.QuitCommand;
 
-import java.io.InputStream;
 import java.util.*;
 
 public class QueryTerminal {
@@ -20,11 +19,11 @@ public class QueryTerminal {
     }
 
     private void refreshCommands() {
+        commands.clear();
         BaseCommand[] commandList = {
                 new HelpCommand(this),
                 new QuitCommand(this)
         };
-        commands.clear();
 
         for (BaseCommand command : commandList) {
             commands.put(command, command.getAliases());
@@ -68,12 +67,11 @@ public class QueryTerminal {
 
         try {
             command = commandSearch(inputCommand);
+            return command.executeAndGetOutput(parameters);
         }
         catch (NoSuchElementException e) {
             return "Command not found. Type 'commands' for help.";
         }
-
-        return command.executeAndGetOutput(parameters);
     }
 
     private String extractCommand(String input) {

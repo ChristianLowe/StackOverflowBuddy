@@ -3,12 +3,8 @@ package com.grognak.sobuddy.commands;
 import com.grognak.sobuddy.app.QueryTerminal;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Set;
 
 public class QuitCommand extends BaseCommand {
-    private String ERROR_NOT_FOUND = "Unknown or invalid command '%s'.";
-
     public QuitCommand(QueryTerminal queryTerminal) {
         this.queryTerminal = queryTerminal;
 
