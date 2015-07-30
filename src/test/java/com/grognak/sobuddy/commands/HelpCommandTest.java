@@ -47,7 +47,7 @@ public class HelpCommandTest {
 
         assertNotNull(usage);
         assertTrue(usage.length() > 0);
-        assertTrue(usage.indexOf("%s") > -1);
+        assertTrue(usage.contains("%s"));
     }
 
     @Test

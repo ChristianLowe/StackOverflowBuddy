@@ -3,6 +3,7 @@ package com.grognak.sobuddy.app;
 import com.grognak.sobuddy.commands.BaseCommand;
 import com.grognak.sobuddy.commands.HelpCommand;
 import com.grognak.sobuddy.commands.QuitCommand;
+import com.grognak.sobuddy.commands.SearchCommand;
 
 import java.util.*;
 
@@ -22,7 +23,8 @@ public class QueryTerminal {
         commands.clear();
         BaseCommand[] commandList = {
                 new HelpCommand(this),
-                new QuitCommand(this)
+                new QuitCommand(this),
+                new SearchCommand(this),
         };
 
         for (BaseCommand command : commandList) {
@@ -31,7 +33,7 @@ public class QueryTerminal {
     }
 
     public BaseCommand commandSearch(String commandToken) {
-        for (BaseCommand command : commands.keySet()) {
+        for (BaseCommand command : getCommandList()) {
             for (String alias : command.getAliases()) {
                 if (commandToken.equals(alias)) {
                     return command;
